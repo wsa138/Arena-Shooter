@@ -11,12 +11,14 @@ public class ShipEnemyMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private EnemyAwarenessController _enemyAwarenessController;
     private Vector2 _targetDirection;
+    private float _changeDirectionCooldown;
 
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _enemyAwarenessController = GetComponent<EnemyAwarenessController>();
+        _targetDirection = transform.up;
     }
 
     private void FixedUpdate()
@@ -31,21 +33,37 @@ public class ShipEnemyMovement : MonoBehaviour
 
     private void UpdateTargetDirection()
     {
+        HandleRandomDirectionChange();
+        HandlePlayerTargeting();
+    }
+
+    private void HandleRandomDirectionChange()
+    {
+        _changeDirectionCooldown -= Time.deltaTime;
+
+        if (_changeDirectionCooldown <= 0)
+        {
+            // Create random angle
+            float angleChange = Random.Range(-90f, 90f);
+            // Create rotation. AngleAxis creates rotation that rotates a number degrees around an axis. Rotate around forward which is towards the screen.
+            Quaternion rotation = Quaternion.AngleAxis(angleChange, transform.forward);
+            // New target direction = rotation * new direction.
+            _targetDirection = rotation * _targetDirection;
+            // Set cooldown
+            _changeDirectionCooldown = Random.Range(1f, 5f);
+        }
+    }
+
+    private void HandlePlayerTargeting()
+    {
         if (_enemyAwarenessController.AwareOfPlayer)
         {
             _targetDirection = _enemyAwarenessController.DirectionToPlayer;
-        } else
-        {
-            _targetDirection = Vector2.zero;
         }
     }
 
     private void RotateTowardsTarget()
     {
-        if (_targetDirection == Vector2.zero)
-        {
-            return;
-        }
         // Get target
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _targetDirection);
         // Rotate towards target
@@ -56,13 +74,7 @@ public class ShipEnemyMovement : MonoBehaviour
 
     private void SetVelocity()
     {
-        if (_targetDirection == Vector2.zero)
-        {
-            _rigidbody.velocity = Vector2.zero;
-        } else
-        {
-            _rigidbody.velocity = transform.up * _speed;
-        }        
+        _rigidbody.velocity = transform.up * _speed;               
     }
 
 }
