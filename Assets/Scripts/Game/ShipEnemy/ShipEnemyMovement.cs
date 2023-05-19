@@ -8,10 +8,13 @@ public class ShipEnemyMovement : MonoBehaviour
 
     [SerializeField] private float _rotationSpeed;
 
+    [SerializeField] private float _screenBorder;
+
     private Rigidbody2D _rigidbody;
     private EnemyAwarenessController _enemyAwarenessController;
     private Vector2 _targetDirection;
     private float _changeDirectionCooldown;
+    private Camera _camera;
 
 
     private void Awake()
@@ -19,6 +22,7 @@ public class ShipEnemyMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _enemyAwarenessController = GetComponent<EnemyAwarenessController>();
         _targetDirection = transform.up;
+        _camera = Camera.main;
     }
 
     private void FixedUpdate()
@@ -35,6 +39,7 @@ public class ShipEnemyMovement : MonoBehaviour
     {
         HandleRandomDirectionChange();
         HandlePlayerTargeting();
+        HandleEnemyOffScreen();
     }
 
     private void HandleRandomDirectionChange()
@@ -59,6 +64,24 @@ public class ShipEnemyMovement : MonoBehaviour
         if (_enemyAwarenessController.AwareOfPlayer)
         {
             _targetDirection = _enemyAwarenessController.DirectionToPlayer;
+        }
+    }
+
+    private void HandleEnemyOffScreen()
+    {
+        // Get the player's position on screen.
+        Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
+
+        // If enemy has gone off screen, and target direction is still to that direction(Left Right), change it.
+        if ((screenPosition.x < _screenBorder && _targetDirection.x < 0) || (screenPosition.x > _camera.pixelWidth - _screenBorder && _targetDirection.x > 0))
+        {
+            _targetDirection = new Vector2(-_targetDirection.x, _targetDirection.y);
+        }
+
+        // If enemy has gone off screen, and target direction is still to that direction(Up Down), change it.
+        if ((screenPosition.y < _screenBorder && _targetDirection.y < 0) || (screenPosition.y > _camera.pixelHeight - _screenBorder && _targetDirection.y > 0))
+        {
+            _targetDirection = new Vector2(_targetDirection.x, -_targetDirection.y);
         }
     }
 

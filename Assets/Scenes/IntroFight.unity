@@ -819,10 +819,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1580552765}
-  - component: {fileID: 1580552763}
   - component: {fileID: 1580552766}
   - component: {fileID: 1580552767}
   - component: {fileID: 1580552768}
+  - component: {fileID: 1580552763}
   - component: {fileID: 1580552769}
   m_Layer: 0
   m_Name: PlayerShip
@@ -845,6 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _rotationSpeed: 720
+  _screenBorder: 30
 --- !u!4 &1580552765
 Transform:
   m_ObjectHideFlags: 0

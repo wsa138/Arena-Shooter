@@ -9,15 +9,19 @@ public class PlayerShipMovement : MonoBehaviour
 
     [SerializeField] private float _rotationSpeed;
 
+    [SerializeField] private float _screenBorder;
+
     private Rigidbody2D _rigidBody;
     private Vector2 _movementInput;
     private Vector2 _smoothedMovementInput;
     private Vector2 _movementInputSmoothVelocity;
+    private Camera _camera;
     
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+        _camera = Camera.main;
     }
 
     private void FixedUpdate()
@@ -38,6 +42,25 @@ public class PlayerShipMovement : MonoBehaviour
 
         // Set player velocity
         _rigidBody.velocity = _smoothedMovementInput * _speed;
+        PreventPlayerGoaingOffScreen();
+    }
+
+    private void PreventPlayerGoaingOffScreen()
+    {
+        // Get the player's position on screen.
+        Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
+
+        // Prevent player from walking out of the screen on x axis.
+        if ((screenPosition.x < _screenBorder && _rigidBody.velocity.x < 0) || (screenPosition.x > _camera.pixelWidth - _screenBorder && _rigidBody.velocity.x > 0))
+        {
+            _rigidBody.velocity = new Vector2(0, _rigidBody.velocity.y);
+        }
+
+        // Prevent player from walking out of the screen on y axis.
+        if ((screenPosition.y < _screenBorder && _rigidBody.velocity.y < 0) || (screenPosition.y > _camera.pixelHeight - _screenBorder && _rigidBody.velocity.y > 0))
+        {
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0);
+        }
     }
 
     private void RotateInDirectionOfInpuit()
