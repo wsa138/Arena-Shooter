@@ -25,6 +25,7 @@ public class PlayerLaser : MonoBehaviour
             // Destroy that game object and this bullet.
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            ScoreManager.score += 10; // Increment score from ScoreManager script
         }
     }
 
