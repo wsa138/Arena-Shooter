@@ -51,6 +51,7 @@ public class HealthController : MonoBehaviour
         if (_currentHealth == 0)
         {
             OnDied.Invoke();
+            Debug.Log("Captured!");
         } else
         {
             OnDamaged.Invoke();
