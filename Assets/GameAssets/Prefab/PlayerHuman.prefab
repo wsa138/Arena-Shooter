@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5759180234114952443}
   - component: {fileID: 5759180234114952444}
   - component: {fileID: 5759180234114952440}
-  - component: {fileID: 1003515734}
   m_Layer: 0
   m_Name: PlayerHuman
   m_TagString: Untagged
@@ -84,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.8828125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &5759180234114952444
@@ -138,16 +137,3 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1003515734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759180234114952445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48995c28e3ccece419b5c8a66053d30e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5

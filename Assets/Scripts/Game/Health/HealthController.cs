@@ -9,6 +9,7 @@ public class HealthController : MonoBehaviour
 
     [SerializeField] private float _maximumHealth;
 
+    private IntroFightController sceneController;
     public bool IsInvincible { get; set; }
 
     public float RemainingHealthPercentage
@@ -25,6 +26,11 @@ public class HealthController : MonoBehaviour
     public UnityEvent OnDamaged;
 
     public UnityEvent OnHealthChanged;
+
+    private void Start()
+    {
+        sceneController = FindObjectOfType<IntroFightController>();
+    }
 
     public void TakeDamage(float damageAmount)
     {
@@ -52,6 +58,7 @@ public class HealthController : MonoBehaviour
         {
             OnDied.Invoke();
             Debug.Log("Captured!");
+            sceneController.EndScene();
         } else
         {
             OnDamaged.Invoke();
