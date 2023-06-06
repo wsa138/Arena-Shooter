@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class HumanMovement : MonoBehaviour
 {
+    [SerializeField] Sprite sp1;
+    [SerializeField] Sprite sp2;
+    [SerializeField] SpriteRenderer spRenderer;
+
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
@@ -48,6 +52,8 @@ public class HumanMovement : MonoBehaviour
 
         // Mouse position
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        FlipSprite(movement.x);
     }
 
     private void Aim()
@@ -60,5 +66,21 @@ public class HumanMovement : MonoBehaviour
         // Atan returns angle to the vector
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+
+    // Function takes a float from GetInput() and changes the sprite.
+    private void FlipSprite(float inputX)
+    {
+        // Access the sprite renderer of the child Human object.
+        SpriteRenderer humanSpriteRenderer = spRenderer.GetComponent<SpriteRenderer>();
+
+        if (inputX > 0)
+        {
+            humanSpriteRenderer.sprite = sp1;
+        }
+        if (inputX < 0)
+        {
+            humanSpriteRenderer.sprite = sp2;
+        }
     }
 }
