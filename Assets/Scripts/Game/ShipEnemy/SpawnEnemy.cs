@@ -5,36 +5,45 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
 
-    public GameObject enemyPrefab; // Reference enemy prefab
-    public Transform spawnPoint; // Reference the spawn point transform
-    public float spawnInterval = 2.5f; // Interval between enemy spawns
+    [SerializeField] GameObject _enemyPrefab; // Reference enemy prefab
+    [SerializeField] float _spawnIntervalMin = 2f; // Min interval between enemy spawns
+    [SerializeField] float _spawnIntervalMax = 3f; // Max interval
+    private float _timeUntilSpawn;
     [SerializeField] private float waveTwoScore;
 
-    private float spawnTimer = 0f;
+    private void Awake()
+    {
+        // Set time until spawn when scene first starts.
+        SetTimeUntilSpawn();
+    }
 
     private void Update()
     {
         // Decrease spawn interval if score is above certain number.
         if (ScoreManager.score > waveTwoScore)
         {
-            spawnInterval = 1.5f;
+            _spawnIntervalMax = 2.1f;
         }
 
-        // Increment timer
-        spawnTimer += Time.deltaTime;
+        // Reduce time until spawn by amount of time that has passed in a frame.
+        _timeUntilSpawn -= Time.deltaTime;
 
         // Check if it's time to spawn a new enemy
-        if (spawnTimer > spawnInterval)
+        if (_timeUntilSpawn <= 0)
         {
             CreateEnemy();
-            spawnTimer = 0f; // Reset timer
+            SetTimeUntilSpawn(); // Reset timer
         }
     }
 
     private void CreateEnemy()
     {
         // Instantiate an enemy at the spawn point
-        GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
     }
 
+    private void SetTimeUntilSpawn()
+    {
+        _timeUntilSpawn = Random.Range(_spawnIntervalMin, _spawnIntervalMax);
+    }
 }
