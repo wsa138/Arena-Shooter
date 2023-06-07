@@ -153,9 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95258abee34d2284eaefa28895c6deb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sp1: {fileID: 835969947, guid: 123d54a09b5e49a7b77ca17b4009834c, type: 3}
-  sp2: {fileID: 939783734, guid: 123d54a09b5e49a7b77ca17b4009834c, type: 3}
-  spRenderer: {fileID: 1369517414}
   moveSpeed: 5
   rb: {fileID: 82616794}
   cam: {fileID: 519420031}

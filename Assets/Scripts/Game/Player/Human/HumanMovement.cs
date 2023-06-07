@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class HumanMovement : MonoBehaviour
 {
-    [SerializeField] Sprite sp1;
-    [SerializeField] Sprite sp2;
-    [SerializeField] SpriteRenderer spRenderer;
-
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
@@ -28,23 +24,6 @@ public class HumanMovement : MonoBehaviour
         Aim();
     }
 
-    private void ChangeSpriteByDirection()
-    {
-        // Change the direction that the sprite is faving based on mouse position(Don't use keys, cause then moving left would give left sprite, but could be trying to aim right).
-
-        /* 
-         If (mouse position is to the right of the current players position) {
-            GetComponent<SpriteRenderer>().sprite = rightFacingSprite;
-        } else {
-            Load the sprite that is facing left(middle if idle)
-        }
-         */
-
-
-
-        // Once done, need to decouple the mouse position from the sprites z axis rotation.
-    }
-
     private void GetInput()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -52,8 +31,6 @@ public class HumanMovement : MonoBehaviour
 
         // Mouse position
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        FlipSprite(movement.x);
     }
 
     private void Aim()
@@ -67,20 +44,9 @@ public class HumanMovement : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
-
-    // Function takes a float from GetInput() and changes the sprite.
-    private void FlipSprite(float inputX)
-    {
-        // Access the sprite renderer of the child Human object.
-        SpriteRenderer humanSpriteRenderer = spRenderer.GetComponent<SpriteRenderer>();
-
-        if (inputX > 0)
-        {
-            humanSpriteRenderer.sprite = sp1;
-        }
-        if (inputX < 0)
-        {
-            humanSpriteRenderer.sprite = sp2;
-        }
-    }
 }
+
+
+/*TODO: 
+    Move the FlipSprite script to it's own script. Access it from this script.
+ */
