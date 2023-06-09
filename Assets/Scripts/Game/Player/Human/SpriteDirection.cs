@@ -9,12 +9,13 @@ public class SpriteDirection : MonoBehaviour
     [SerializeField] SpriteRenderer spRenderer;
 
     Vector2 movementDirection;
+    bool facingLeft = true;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        spRenderer = GetComponent<SpriteRenderer>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -23,19 +24,19 @@ public class SpriteDirection : MonoBehaviour
         FlipSprite(movementDirection.x);
     }
 
-    // Function takes a float from GetInput() and changes the sprite.
+    // Function takes a float representing input value on x and changes the sprite.
     private void FlipSprite(float inputX)
     {
-        // Access the sprite renderer of the child Human object.
-        SpriteRenderer humanSpriteRenderer = spRenderer.GetComponent<SpriteRenderer>();
-
-        if (inputX < 0)
+        if (inputX < 0 && facingLeft == false)
         {
-            humanSpriteRenderer.sprite = sp1;
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            facingLeft = true;
         }
-        if (inputX > 0)
+        if (inputX > 0 && facingLeft == true)
         {
-            humanSpriteRenderer.sprite = sp2;
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            facingLeft = false;
+           // spRenderer.flipX = true;
         }
     }
 }
