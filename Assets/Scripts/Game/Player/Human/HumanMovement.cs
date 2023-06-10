@@ -14,6 +14,12 @@ public class HumanMovement : MonoBehaviour
 
     Vector2 movement;
     Vector3 mousePos;
+    Vector3 newArmScale;
+
+    private void Start()
+    {
+        armTransform = transform.Find("Arm");
+    }
 
     // Trigger movement with Update
     private void Update()
@@ -50,12 +56,18 @@ public class HumanMovement : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(1, 1, 1);
             facingLeft = true;
+            newArmScale.x = 1f;
+            newArmScale.y = 1f;
+            armTransform.localScale = newArmScale;
         }
 
         if (mousePos.x > currentPositionX && facingLeft == true)
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
             facingLeft = false;
+            newArmScale.x = -1f;
+            newArmScale.y = -1f;
+            armTransform.localScale = newArmScale;
         }
     }
 }
