@@ -41,7 +41,7 @@ public class PlayerShipShoot : MonoBehaviour
     // Fire two lasers, one from each gunOffset position.
     private void FireLaser()
     {
-        // Bullet spawns in with Laser Prefab, at the GunOffset position, faving in the correct direction.
+        // Bullet spawns in with Laser Prefab, at the GunOffset position, facing in the correct direction.
         GameObject laser1 = Instantiate(_laserPrefab, _gunOffset1.position, transform.rotation);
         GameObject laser2 = Instantiate(_laserPrefab, _gunOffset2.position, transform.rotation);
         // Get the rigidbody1 of the laser1 prefab.
