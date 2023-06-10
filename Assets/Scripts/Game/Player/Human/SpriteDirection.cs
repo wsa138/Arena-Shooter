@@ -5,16 +5,10 @@ using UnityEngine;
 public class SpriteDirection : MonoBehaviour
 {
     [SerializeField] Sprite sp1;
-    [SerializeField] Sprite sp2;
-    [SerializeField] SpriteRenderer spRenderer;
 
     Vector2 movementDirection;
     bool facingLeft = true;
 
-    private void Start()
-    {
-        spRenderer = GetComponent<SpriteRenderer>();
-    }
 
 
     // Update is called once per frame
