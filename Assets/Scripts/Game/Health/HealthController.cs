@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
@@ -58,8 +59,16 @@ public class HealthController : MonoBehaviour
         {
             OnDied.Invoke();
             Debug.Log("Captured!");
-            sceneController.EndScene();
-        } else
+            if (SceneManager.GetActiveScene().name == "ArenaScene")
+            {
+                SceneManager.LoadScene("ArenaScene");
+            }
+            else
+            {
+                sceneController.EndScene();
+            }            
+        } 
+        else
         {
             OnDamaged.Invoke();
         }
