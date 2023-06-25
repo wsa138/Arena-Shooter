@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - Floor
+  - Shield
   - Walls
   - Player
   - Background
-  - 
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3001165361
+    locked: 0
+  - name: Shield
+    uniqueID: 4048326443
     locked: 0
   - name: Platform
     uniqueID: 2729686877
