@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnShipEnemyMovement : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    private GameObject player;
     [SerializeField] float speed;
 
     private OnShipEnemyAwarenessController enemyAwarenessController;
@@ -12,6 +12,7 @@ public class OnShipEnemyMovement : MonoBehaviour
     private void Awake()
     {
         enemyAwarenessController = GetComponent<OnShipEnemyAwarenessController>();
+        player = GameObject.Find("Human");
     }
     private void Update()
     {
