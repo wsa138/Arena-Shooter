@@ -7,8 +7,10 @@ public class ShootPlayerSuperShip : MonoBehaviour
 {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] float projectileLifetime = 5f;
+    [SerializeField] float projectileLifetime = 3f;
     [SerializeField] float firingRate = .2f;
+    [SerializeField] GameObject gunOne;
+    [SerializeField] GameObject gunTwo;
 
     private bool isFiring;
 
@@ -43,15 +45,17 @@ public class ShootPlayerSuperShip : MonoBehaviour
     {
         while(true)
         {
-            GameObject instance = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            GameObject instance1 = Instantiate(projectilePrefab, gunOne.transform.position, Quaternion.identity);
+            GameObject instance2 = Instantiate(projectilePrefab, gunTwo.transform.position, Quaternion.identity);
 
-            Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.velocity = transform.up * projectileSpeed;
-            }
+            Rigidbody2D bulletRB1 = instance1.GetComponent<Rigidbody2D>();
+            Rigidbody2D bulletRB2 = instance2.GetComponent<Rigidbody2D>();
 
-            Destroy(instance, projectileLifetime);
+            bulletRB1.velocity = transform.up * projectileSpeed;
+            bulletRB2.velocity = transform.up * projectileSpeed;
+
+            Destroy(instance1, projectileLifetime);
+            Destroy(instance2, projectileLifetime);
             yield return new WaitForSeconds(firingRate);
         }
     }

@@ -38,13 +38,11 @@ public class BossMovement : MonoBehaviour
             {
                 if (maxViewportPos.x > 1)
                 {
-                    Debug.Log("Out Right");
                     rb.velocity = Vector2.left * bossSpeed;
                 }
 
                 if (minViewportPos.x < 0)
                 {
-                    Debug.Log("Out Left");
                     rb.velocity = Vector2.right * bossSpeed;
                 }
             }            
