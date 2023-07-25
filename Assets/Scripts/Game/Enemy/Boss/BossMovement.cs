@@ -7,7 +7,7 @@ public class BossMovement : MonoBehaviour
     [SerializeField] float bossSpeed;
 
     private Rigidbody2D rb;
-    private BoxCollider2D rbCollider;
+    private PolygonCollider2D rbCollider;
     private Camera mainCamera;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class BossMovement : MonoBehaviour
         // Boss rigidbody
         rb = GetComponent<Rigidbody2D>();
         // Boss collider
-        rbCollider = GetComponent<BoxCollider2D>();
+        rbCollider = GetComponent<PolygonCollider2D>();
         mainCamera = Camera.main;
 
         rb.velocity = Vector2.right * bossSpeed;
