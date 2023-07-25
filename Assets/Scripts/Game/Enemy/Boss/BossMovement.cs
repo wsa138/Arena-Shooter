@@ -9,6 +9,7 @@ public class BossMovement : MonoBehaviour
     private Rigidbody2D rb;
     private PolygonCollider2D rbCollider;
     private Camera mainCamera;
+    private float additionalSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +37,21 @@ public class BossMovement : MonoBehaviour
             // Check if boss is hitting out of bounds.
             if (maxViewportPos.x >= 1 || minViewportPos.x <= 0)
             {
+                // Add a random amount of speed to the boss.
+                additionalSpeed = Random.Range(1f, 5f);
+                bossSpeed += additionalSpeed;
+
                 if (maxViewportPos.x > 1)
-                {
+                {                    
                     rb.velocity = Vector2.left * bossSpeed;
                 }
 
                 if (minViewportPos.x < 0)
                 {
-                    rb.velocity = Vector2.right * bossSpeed;
+                    rb.velocity = Vector2.right * bossSpeed;                    
                 }
+                // Reset the boss speed.
+                bossSpeed -= additionalSpeed;
             }            
         }
     }
