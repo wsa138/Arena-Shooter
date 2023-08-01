@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2990236120808669294}
   - component: {fileID: 2990236120808669293}
   - component: {fileID: 2990236120808669292}
+  - component: {fileID: 1587865681}
   m_Layer: 0
   m_Name: PlayerSuperShip
   m_TagString: Untagged
@@ -150,10 +151,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4620431210699955225, guid: 26af067c81786834cb4814967138fe3a, type: 3}
   projectileSpeed: 10
-  projectileLifetime: 5
+  projectileLifetime: 2
   firingRate: 0.2
   gunOne: {fileID: 2990236121033792096}
   gunTwo: {fileID: 2990236121346863129}
+--- !u!114 &1587865681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990236120808669291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ecd25321791444db6c0e6d69e49f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
 --- !u!1 &2990236121033792096
 GameObject:
   m_ObjectHideFlags: 0
