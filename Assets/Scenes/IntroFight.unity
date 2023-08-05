@@ -540,6 +540,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4426269278491894498, guid: b42d9f8a7c1809f4e87b39783062c638, type: 3}
+      propertyPath: sceneToLoad
+      value: 
+      objectReference: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+    - target: {fileID: 4426269278491894498, guid: b42d9f8a7c1809f4e87b39783062c638, type: 3}
       propertyPath: OnDied.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}

@@ -59,7 +59,7 @@ public class HealthController : MonoBehaviour
         {
             OnDied.Invoke();
             Debug.Log("Captured!");
-            if (SceneManager.GetActiveScene().name == "ArenaScene")
+            if (SceneManager.GetActiveScene().name == "ArenaScene" || SceneManager.GetActiveScene().name == "BossBattle")
             {
                 SceneManager.LoadScene("ArenaScene");
             }

@@ -85138,6 +85138,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4611776451134423941, guid: 78f3fd982939666408112855721b7c51, type: 3}
   m_PrefabInstance: {fileID: 4611776451204457052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &503686319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
+  m_PrefabInstance: {fileID: 4611776451204457052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9b68057f11a3a4599f14f75e5337a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &507199973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94239,6 +94250,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1256457032480531656, guid: 5cc1eb46dd39f544eb8583429ecb8484, type: 3}
   m_PrefabInstance: {fileID: 811353110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1602996961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4314532941349923955, guid: b5011b3ea50db3e42b2a8e7ec0b8d84f, type: 3}
+  m_PrefabInstance: {fileID: 243667470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adf91f1aa696f641b374a277296858e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1618008399
 GameObject:
   m_ObjectHideFlags: 0
@@ -95479,12 +95501,32 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
       propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: 3adf91f1aa696f641b374a277296858e, type: 3}
+      objectReference: {fileID: 1602996961}
     - target: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
       propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HealthBarUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
+      objectReference: {fileID: 503686319}
+    - target: {fileID: 4611776451134423937, guid: 78f3fd982939666408112855721b7c51, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: HealthController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4611776451134423940, guid: 78f3fd982939666408112855721b7c51, type: 3}
       propertyPath: cam

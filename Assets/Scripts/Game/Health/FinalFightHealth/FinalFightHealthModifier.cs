@@ -13,6 +13,15 @@ public class FinalFightHealthModifier : MonoBehaviour
         {
             return;
         }
+
+        if (collision.GetComponent<HealthController>())
+        {
+            var healthController = collision.gameObject.GetComponent<HealthController>();
+            healthController.TakeDamage(damageAmount);
+            return;
+
+        }
+
         FinalFightHealth otherHealth = collision.GetComponent<FinalFightHealth>();
         if (otherHealth != null)
         {
