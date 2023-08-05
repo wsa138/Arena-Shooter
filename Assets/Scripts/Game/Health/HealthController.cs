@@ -57,6 +57,7 @@ public class HealthController : MonoBehaviour
         // Call the OnDied event if health is 0.
         if (_currentHealth == 0)
         {
+            DecreaseScore();
             OnDied.Invoke();
             Debug.Log("Captured!");
             if (SceneManager.GetActiveScene().name == "ArenaScene" || SceneManager.GetActiveScene().name == "BossBattle")
@@ -88,6 +89,22 @@ public class HealthController : MonoBehaviour
         if (_currentHealth > _maximumHealth)
         {
             _currentHealth = _maximumHealth;
+        }
+    }
+
+    private void DecreaseScore()
+    {
+        if (SceneManager.GetActiveScene().name == "IntroFight")
+        {
+            return;
+        }
+        if (ScoreManager.score < 300)
+        {
+            ScoreManager.score = 0;
+        }
+        else
+        {
+            ScoreManager.score -= 300;
         }
     }
 }
