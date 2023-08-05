@@ -7,7 +7,7 @@ public class SpawnEnemy : MonoBehaviour
 
     [SerializeField] GameObject _enemyPrefab; // Reference enemy prefab
     [SerializeField] float _spawnIntervalMin = 2f; // Min interval between enemy spawns
-    [SerializeField] float _spawnIntervalMax = 3f; // Max interval
+    [SerializeField] float _spawnIntervalMax = 4f; // Max interval
     private float _timeUntilSpawn;
     [SerializeField] private float waveTwoScore;
 
@@ -22,7 +22,8 @@ public class SpawnEnemy : MonoBehaviour
         // Decrease spawn interval if score is above certain number.
         if (ScoreManager.score > waveTwoScore)
         {
-            _spawnIntervalMax = 2.1f;
+            _spawnIntervalMin = 1f;
+            _spawnIntervalMax = 2f;
         }
 
         // Reduce time until spawn by amount of time that has passed in a frame.

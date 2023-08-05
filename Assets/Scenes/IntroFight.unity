@@ -544,6 +544,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     - target: {fileID: 4426269278491894498, guid: b42d9f8a7c1809f4e87b39783062c638, type: 3}
+      propertyPath: _currentHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426269278491894498, guid: b42d9f8a7c1809f4e87b39783062c638, type: 3}
+      propertyPath: _maximumHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426269278491894498, guid: b42d9f8a7c1809f4e87b39783062c638, type: 3}
       propertyPath: OnDied.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -830,7 +838,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2968403783116060594, guid: ad43a25934f9f204890a06f74640c8a4, type: 3}
       propertyPath: _enemyAwarenessDistance
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2968403783116060595, guid: ad43a25934f9f204890a06f74640c8a4, type: 3}
       propertyPath: m_RootOrder
@@ -879,6 +887,10 @@ PrefabInstance:
     - target: {fileID: 2968403783116060597, guid: ad43a25934f9f204890a06f74640c8a4, type: 3}
       propertyPath: m_Name
       value: EnemyShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403644563456533968, guid: ad43a25934f9f204890a06f74640c8a4, type: 3}
+      propertyPath: _damageAmount
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad43a25934f9f204890a06f74640c8a4, type: 3}

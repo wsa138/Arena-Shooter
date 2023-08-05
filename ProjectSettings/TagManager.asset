@@ -7,6 +7,8 @@ TagManager:
   - Human
   - Enemy
   - EmptyShip
+  - PlayerBullet
+  - BabyBossShip
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Walls
   - Player
   - Background
-  - 
+  - Enemy
   - 
   - 
   - 
