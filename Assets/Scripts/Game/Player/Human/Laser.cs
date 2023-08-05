@@ -8,6 +8,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.GetComponent<OnShipEnemyMovement>())
         {
+            ScoreManager.score += 10;
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
