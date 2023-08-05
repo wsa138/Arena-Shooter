@@ -14,6 +14,12 @@ public class FinalFightHealthModifier : MonoBehaviour
             return;
         }
 
+        if (collision.gameObject.CompareTag("BabyBossShip"))
+        {
+            Destroy(collision.gameObject);
+            ScoreManager.score += 10;
+        }
+
         if (collision.GetComponent<HealthController>())
         {
             var healthController = collision.gameObject.GetComponent<HealthController>();
