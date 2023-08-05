@@ -6,7 +6,7 @@ public class Laser : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<OnShipEnemyMovement>())
+        if (collision.GetComponent<OnShipEnemyMovement>() || collision.CompareTag("EmptyShip"))
         {
             ScoreManager.score += 10;
             Destroy(collision.gameObject);

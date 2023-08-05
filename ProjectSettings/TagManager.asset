@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Human
   - Enemy
+  - EmptyShip
   layers:
   - Default
   - TransparentFX
