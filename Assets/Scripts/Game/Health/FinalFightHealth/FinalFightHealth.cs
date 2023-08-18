@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinalFightHealth : MonoBehaviour
 {
-    [SerializeField] int health = 100;
+    [SerializeField] public int health = 100;
 
     private void Start()
     {
