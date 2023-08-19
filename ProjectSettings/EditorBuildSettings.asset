@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossBattle.unity
     guid: d4d9363d155cf8d41a8f7d295f9cdba7
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 655e51dd407f42240a64e3af9400dfd6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a0de1f99591a5dc4d877e358e980fe61, type: 2}

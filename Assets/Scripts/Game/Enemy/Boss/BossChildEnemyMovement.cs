@@ -43,6 +43,8 @@ public class BossChildEnemyMovement : MonoBehaviour
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
     }
+
+    
 }
 
 

@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalFightHealth : MonoBehaviour
 {
     [SerializeField] public int health = 100;
+    [SerializeField] ParticleSystem explosionPrefab;
+
+
 
     private void Start()
     {
@@ -22,7 +26,15 @@ public class FinalFightHealth : MonoBehaviour
 
     private void Die()
     {
-        // implement death behavior
+        // Implement death behavior
+        ParticleSystem explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        explosion.Play();
+        Destroy(explosion.gameObject, explosion.main.duration);
+
         Destroy(gameObject);
+
     }
+
+
+
 }
